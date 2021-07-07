@@ -1,3 +1,6 @@
 [submodule "aws-robomaker-small-house-world"]
 	path = aws-robomaker-small-house-world
 	url = ../../aws-robotics/aws-robomaker-small-house-world
+[submodule "gazebo_ros_link_attacher"]
+	path = gazebo_ros_link_attacher
+	url = ../../pal-robotics/gazebo_ros_link_attacher
