@@ -1,0 +1,3 @@
+[submodule "aws-robomaker-small-house-world"]
+	path = aws-robomaker-small-house-world
+	url = ../../aws-robotics/aws-robomaker-small-house-world
