@@ -1,0 +1,10 @@
+# Places in the competition environment for the robot to go, an input to move_base
+
+
+StartSpot:
+    x: 0.
+    y: 0.
+    rotation: 0.
+
+
+
