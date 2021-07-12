@@ -8,6 +8,7 @@ from gazebo_msgs.srv import DeleteModel
 from geometry_msgs.msg import Pose
 from std_srvs.srv import Empty
 from tf.transformations import quaternion_from_euler
+import gazebo_ros_link_attacher.srv
 
 def parse_pose(info):
     from geometry_msgs.msg import Pose,Point,Quaternion
@@ -65,12 +66,17 @@ class API(object):
             self._gazebo_delete_model = rospy.ServiceProxy("/gazebo/delete_model", DeleteModel)
             self._gazebo_reset_world = rospy.ServiceProxy("/gazebo/reset_world", Empty)
             self._arm_move_group = moveit_commander.MoveGroupCommander("arm")
+            self._arm_move_group.set_start_state_to_current_state()
             self._torso_move_group = moveit_commander.MoveGroupCommander("arm_torso")
+            self._torso_move_group.set_start_state_to_current_state()
             self._move_base_client = actionlib.SimpleActionClient('move_base',MoveBaseAction)
             self._move_base_client.wait_for_server()
-
+            self._attach_link = rospy.ServiceProxy('/link_attacher_node/attach',gazebo_ros_link_attacher.srv.Attach)
+            self._detach_link = rospy.ServiceProxy('/link_attacher_node/detach',gazebo_ros_link_attacher.srv.Attach)
         except rospy.ROSException as ex:
             print("Some simulation services were not found, is the simulation running? ({})".format(ex))
+        # TODO: wait for velocities == 0. -> tuck_arm.py
+
 
         self._spawned_objects = []
         self._spawned_personas = []
@@ -108,6 +114,7 @@ class API(object):
         """
         # remove all objects added by load scene
         for obj in self._spawned_objects:
+            print("Deleting {}".format(obj))
             self._gazebo_delete_model(model_name=obj)
         self._spawned_objects = []
         self._scene_request = None
@@ -271,8 +278,8 @@ class API(object):
         Example:
         api.grasp_object("Banana")
         """
-        # TODO: use pal grasp hack to add fixed joint between gripper and object
-        pass
+        # use pal grasp hack to add fixed joint between gripper and object
+        self._attach_link(model_name_1="tiago", link_name_1='arm_7_link', model_name_2=object_handle, link_name_2='link')
 
     def drop_object(self, object_handle):
         """
@@ -282,8 +289,8 @@ class API(object):
         Example:
         api.drop_object("Banana")
         """
-        # TODO: use pal grasp hack to drop object
-        pass
+        # use pal grasp hack to drop object
+        self._detach_link(model_name_1="tiago", link_name_1='arm_7_link', model_name_2=object_handle, link_name_2='link')
 
     def get_request(self):
         """

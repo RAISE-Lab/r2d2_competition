@@ -9,6 +9,8 @@
         <pose>-4.4965503 -0.4874 1.508684 0 -0 0</pose>
       </camera>
     </gui>
+    <!-- Add plugin for fake grasping -->
+    <plugin name="ros_link_attacher_plugin" filename="libgazebo_ros_link_attacher.so"/>
     <gravity>0 0 -9.8</gravity>
     <magnetic_field>6e-06 2.3e-05 -4.2e-05</magnetic_field>
     <atmosphere type='adiabatic'/>
