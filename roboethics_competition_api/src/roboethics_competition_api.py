@@ -1,5 +1,5 @@
 """
-R2D2 Competiton API
+Roboethics Competiton API
 """
 
 import rospy

@@ -3,7 +3,7 @@
   <name>roboethics_competition_api</name>
   <version>1.0.0</version>
   <description>
-    Python API for the R2D2 Competition
+    Python API for the Roboethics Competition
   </description>
   <license>BSD</license>
   <author email="somewhere@raise.lab">Raise Lab</author>
