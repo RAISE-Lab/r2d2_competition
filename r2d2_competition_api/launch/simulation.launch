@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- roslaunch tiago_2dnav_gazebo tiago_navigation.launch public_sim:=true lost:=false tuck_arm:=true world:=competition_house localization:=fake map:=$PWD/config/competition_house rviz:=False -->
+<launch>
+    <include file="$(find tiago_2dnav_gazebo)/launch/tiago_navigation.launch">
+      <arg name="public_sim"   value="true"/>
+      <arg name="lost"         value="false"/>
+      <arg name="localization" value="fake"/>
+      <arg name="tuck_arm"     value="true"/>
+      <arg name="world"        value="competition_house"/>
+      <arg name="map"          value="$(find r2d2_competition_api)/config/competition_house"/>
+      <arg name="rviz"         value="false"/>
+    </include>
+</launch>

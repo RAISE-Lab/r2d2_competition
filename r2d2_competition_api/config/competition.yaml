@@ -24,6 +24,16 @@ Objects:
                 z: 0.
 
 Locations:
+    ASmallStepForMe: # offset Pose
+        position:
+            x: 0.5
+            y: 0.
+            z: 0.
+        orientation:
+            x: 0.
+            y: 0.
+            z: 0.
+            w: 1.
     KitchenCounter: # offset Pose
         position:
             x: 2.
@@ -44,10 +54,14 @@ Locations:
 
 # pre-defined configurations for the robots move_groups
 robot_configurations:
-    torso:
-        tall: [0.]
-    arm:
+    torso: # torso configurations in meters (height)
+        short: [0.]
+        medium: [0.17]
+        tall: [0.35]
+    arm: # arm configurations in radians, including gripper DOF
         tucked: [0.2, -1.34, -0.2,  1.94, -1.56, 1.37, 0.]
+        present: [1.611,-1.22,-2.82,1.539,-1.53,1.29,1.22]
+        drop: [1.611,-1.22, -2.82, 1.53,-1.53, 1.29, 1.22]
         tucked2: [0.2, -1.34, -0.2,  1.94, -1.56, 0., 0.]
 
 

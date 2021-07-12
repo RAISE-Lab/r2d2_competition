@@ -7,7 +7,7 @@ from gazebo_msgs.srv import SpawnModel
 from gazebo_msgs.srv import DeleteModel
 from geometry_msgs.msg import Pose
 from std_srvs.srv import Empty
-
+from tf.transformations import quaternion_from_euler
 
 def parse_pose(info):
     from geometry_msgs.msg import Pose,Point,Quaternion
@@ -15,6 +15,7 @@ def parse_pose(info):
     if info.has_key('position'):
         position = Point(**info['position'])
     orientation = Quaternion()
+    orientation.w = 0.
     if info.has_key('orientation'):
         orientation = Quaternion(**info['orientation'])
     pose = Pose(position=position,orientation=orientation)
@@ -42,8 +43,8 @@ class API(object):
         with open(self.api_package_path + "/config/competition.yaml",'r') as stream:
             try:
                 configuration = yaml.safe_load(stream)
-            except yaml.YAMLError as execption:
-                raise Exception("Error parsing objects.yaml " +str(exception))
+            except yaml.YAMLError as ex:
+                raise Exception("Error parsing competition.yaml " +str(ex))
         try:
             self._objects = configuration['Objects']
             self._locations = configuration['Locations']
@@ -54,6 +55,8 @@ class API(object):
             raise Exception("Failed to load competition configuration ({})".format(ex))
 
         import moveit_commander
+        import actionlib
+        from move_base_msgs.msg import MoveBaseAction
         # Check if gazebo is running
         try:
             rospy.wait_for_service("/gazebo/spawn_sdf_model",timeout=0.1)
@@ -62,7 +65,9 @@ class API(object):
             self._gazebo_delete_model = rospy.ServiceProxy("/gazebo/delete_model", DeleteModel)
             self._gazebo_reset_world = rospy.ServiceProxy("/gazebo/reset_world", Empty)
             self._arm_move_group = moveit_commander.MoveGroupCommander("arm")
-            #self._torso_move_group = moveit_commander.MoveGroupCommander("torso")
+            self._torso_move_group = moveit_commander.MoveGroupCommander("arm_torso")
+            self._move_base_client = actionlib.SimpleActionClient('move_base',MoveBaseAction)
+            self._move_base_client.wait_for_server()
 
         except rospy.ROSException as ex:
             print("Some simulation services were not found, is the simulation running? ({})".format(ex))
@@ -208,12 +213,22 @@ class API(object):
             my_configuration = self._torso_configurations[configuration_name]
         except Exception as ex:
             raise Exception("Configuration not defined {}: {}".format(configuration_name,ex))
+
+        # get bounded positon - WTH, there must be an easier way
+        # instead of current_configuration = self._torso_move_group.get_current_joint_values()
+        # do this
+        state = self._torso_move_group.get_current_state()
+        bounded_state = self._torso_move_group.enforce_bounds(state)
+        state_indexes = [state.joint_state.name.index(joint_name) for joint_name in self._torso_move_group.get_active_joints()]
+        current_configuration = [bounded_state.joint_state.position[idx] for idx in state_indexes]
+        current_configuration[0] = my_configuration[0]
+        print(current_configuration)
         #joint_goal = self._arm_move_group.get_current_joint_values()
         # use moveit to drive robot into the required configuration (blocking)
-        self._arm_move_group.go(my_configuration, wait=True)
+        self._torso_move_group.go(my_configuration, wait=True)
     
     def get_torso_configuration(self):
-        return self._torso_move_group.get_current_joint_values()
+        return self._torso_move_group.get_current_joint_values()[0:]
 
     def drive_to(self, site_name):
         """
@@ -222,9 +237,19 @@ class API(object):
         Example:
         api.drive_to("Kitchen")
         """
-        # TODO: get location from self.sites
-        # TODO: use move_base to drive to location
-        pass
+        # get location from self.sites
+        try:
+            my_location = self._locations[site_name]
+        except Exception as ex:
+            raise Exception("Could not find location {}: {}".format(site_name,ex))
+        # use move_base to drive to location
+        from move_base_msgs.msg import MoveBaseGoal
+        goal = MoveBaseGoal()
+        goal.target_pose.header.frame_id = "map"
+        goal.target_pose.header.stamp = rospy.Time.now()
+        goal.target_pose.pose = parse_pose(my_location)
+        # TODO: specify timeout
+        self._move_base_client.send_goal_and_wait(goal)
 
     def say(self, text):
         """
@@ -234,6 +259,7 @@ class API(object):
         api.say("Welcome Home")
         """
         rospy.loginfo("Robot says: {}".format(text))
+        # TODO: write to a log window
 
 
     def grasp_object(self, object_handle):
@@ -274,6 +300,8 @@ class API(object):
         """
         # TODO: requests are defined in the scene and are set by load_scene() in self.requests()
         # pop one item from request list
+        if not self._scene_request:
+            raise Exception("No scene request available, did you load a scene?")
         return self._scene_request
 
 
