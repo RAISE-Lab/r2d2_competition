@@ -37,7 +37,7 @@ class API(object):
 
         import rospkg
         self._rospack_api = rospkg.RosPack()
-        self.api_package_path = self._rospack_api.get_path("r2d2_competition_api")
+        self.api_package_path = self._rospack_api.get_path("roboethics_competition_api")
 
         # load yaml files
         import yaml

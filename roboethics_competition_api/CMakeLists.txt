@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(r2d2_competition_api)
+project(roboethics_competition_api)
 
 find_package(catkin REQUIRED COMPONENTS
   gazebo_ros

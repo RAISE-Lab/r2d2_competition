@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <package format="2">
-  <name>r2d2_competition_api</name>
+  <name>roboethics_competition_api</name>
   <version>1.0.0</version>
   <description>
     Python API for the R2D2 Competition
