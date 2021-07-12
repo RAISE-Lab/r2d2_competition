@@ -1,2 +1,5 @@
 *.sw*
+*.pyc
+nohup.out
+.ipynb_checkpoints
 

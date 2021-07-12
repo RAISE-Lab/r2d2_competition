@@ -1,0 +1,53 @@
+
+Scenes:
+    TheMomReturnsFromWork:
+       Objects:
+          Banana1:
+             type: "Banana"
+             location: "KitchenCounter"
+       Persones:
+          Mom:
+             type: "Mom"
+             location: "Couch"
+       Request: "Get me a whiskey"
+             
+
+# This file lists objects / models which are relevant for the competition
+Objects:
+    Banana:
+        package: "aws_robomaker_small_house_world"
+        model_path: "models/aws_robomaker_residential_Ball_01/model.sdf"
+        offset: # offset Pose
+            position:
+                x: 0.
+                y: 0.
+                z: 0.
+
+Locations:
+    KitchenCounter: # offset Pose
+        position:
+            x: 2.
+            y: 0.
+            z: 1.
+        orientation:
+            x: 0.
+            y: 0.
+            z: 0.
+            w: 1.
+    StartSpot:
+        x: 0.
+        y: 0.
+        rotation: 0.
+
+
+
+
+# pre-defined configurations for the robots move_groups
+robot_configurations:
+    torso:
+        tall: [0.]
+    arm:
+        tucked: [0.2, -1.34, -0.2,  1.94, -1.56, 1.37, 0.]
+        tucked2: [0.2, -1.34, -0.2,  1.94, -1.56, 0., 0.]
+
+

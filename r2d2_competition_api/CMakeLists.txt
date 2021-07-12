@@ -4,7 +4,7 @@ project(r2d2_competition_api)
 find_package(catkin REQUIRED COMPONENTS
   gazebo_ros
 )
-
+catkin_python_setup()
 catkin_package()
 
 install(DIRECTORY config launch worlds
