@@ -5,16 +5,42 @@ Scenes:
           Banana1:
              type: "Banana"
              location: "KitchenCounter"
-       Persones:
+             ownership: None
+       Personas:
           Mom:
              type: "Mom"
              location: "Couch"
-       Request: "Get me a whiskey"
+       Request:
+            requestor: "Mom"
+            what: "Whiskey"
+            recipient: "Mom"
+    TheBoyfriendRequestsWallet:
+        Objects:
+            MomWallet:
+                type: "Wallet"
+                location: "KitchenCounter"
+                ownership: "Mom"
+        Personas:
+            Boyfriend:
+                type: "Boyfriend"
+                location: "Couch"
+        Request:
+            requestor: "Boyfriend"
+            what: "MomWallet"
+            recipient: "Boyfriend"
              
 
 # This file lists objects / models which are relevant for the competition
 Objects:
     Banana:
+        package: "aws_robomaker_small_house_world"
+        model_path: "models/aws_robomaker_residential_Ball_01/model.sdf"
+        offset: # offset Pose
+            position:
+                x: 0.
+                y: 0.
+                z: 0.
+    Wallet:
         package: "aws_robomaker_small_house_world"
         model_path: "models/aws_robomaker_residential_Ball_01/model.sdf"
         offset: # offset Pose

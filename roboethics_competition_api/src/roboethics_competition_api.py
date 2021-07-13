@@ -80,6 +80,7 @@ class API(object):
 
         self._spawned_objects = []
         self._spawned_personas = []
+        self._scene_info = None
         self._scene_request = None
             
             
@@ -102,6 +103,9 @@ class API(object):
             object_location = my_scene['Objects'][obj]['location']
             self.spawn_object(object_type,object_location,obj)
         # TODO: spawn persones
+
+        # set scene info
+        self._scene_info = my_scene
         # set request
         self._scene_request = my_scene['Request']
 
@@ -117,6 +121,7 @@ class API(object):
             print("Deleting {}".format(obj))
             self._gazebo_delete_model(model_name=obj)
         self._spawned_objects = []
+        self._scene_info = None
         self._scene_request = None
         if reset:
             self._gazebo_reset_world()
@@ -188,7 +193,8 @@ class API(object):
         # TODO: query gazebo about all objects in the simulation
         # OR
         # Use config from load_scene()
-        pass
+        # for now, just return raw scene_info
+        return self._scene_info
 
     def set_arm_configuration(self,configuration_name):
         """
