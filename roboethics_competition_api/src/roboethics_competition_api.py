@@ -168,6 +168,40 @@ class API(object):
         self._spawned_objects.append(object_handle)
         rospy.logdebug("Spawning object type {} with object handle {} at {}".format(object_name,object_handle,spawn_location))
 
+    def spawn_persona(self,persona_handle,model,animation,location):
+        """
+        Generate a persona in the simulation
+        """
+
+        try:
+            my_location_info = self._locations[location]
+        except Exception as ex:
+            raise Exception("Location not defined ({})".format(ex))
+        spawn_location = parse_pose(my_location_info)
+        
+        sdf_path = self._rospack_api.get_path('roboethics_competition_api') + '/models/actor/persona_template.sdf'
+        sdf = open(sdf_path).read()
+        # substitute name
+        sdf = sdf.replace("ACTOR_NAME",persona_handle)
+        # substitute pose/trajectory
+        sdf = sdf.replace("ACTOR_POSE","{} {} {} 0. 0. 0.".format(spawn_location.position.x,spawn_location.position.y,spawn_location.position.z))
+        # TODO: subsitute animation
+        # TODO: substitute skin type
+        print(sdf)
+        
+        ignored_pose = Pose()
+        
+        self._gazebo_spawn_sdf_model(
+                model_name=persona_handle,
+                model_xml=sdf,
+                initial_pose=ignored_pose,
+                reference_frame='world')
+        self._spawned_objects.append(persona_handle)
+
+    def remove_persona(self,persona_handle):
+        """Remove a specific persona from the scene"""
+        self.remove_object(persona_handle)
+
     def remove_object(self,object_handle):
         """Remove one specific object given it's handle"""
         # use gazebo remove_object to delete the object from the simulation
