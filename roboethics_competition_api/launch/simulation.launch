@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- roslaunch tiago_2dnav_gazebo tiago_navigation.launch public_sim:=true lost:=false tuck_arm:=true world:=competition_house localization:=fake map:=$PWD/config/competition_house rviz:=False -->
 <launch>
+	<env name="GAZEBO_RESOURCE_PATH" value="$(find roboethics_competition_api)/worlds"/>
+	<env name="GAZEBO_MODEL_PATH" value="$(find roboethics_competition_api)/models"/>
+	<env name="GAZEBO_PLUGIN_PATH" value="$(find roboethics_competition_api)/plugins"/>
+
 	<arg name="rviz"  default="false"/>
 	<include file="$(find tiago_2dnav_gazebo)/launch/tiago_navigation.launch">
 		<arg name="public_sim"   value="true"/>

@@ -4,7 +4,6 @@ project(roboethics_competition_api)
 find_package(catkin REQUIRED COMPONENTS
   gazebo_ros
 )
-catkin_add_env_hooks(gazebo_env SHELLS sh DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/env-hooks)
 catkin_python_setup()
 catkin_package()
 

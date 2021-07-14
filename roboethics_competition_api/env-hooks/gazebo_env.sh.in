@@ -1,3 +1,0 @@
-export GAZEBO_MODEL_PATH=$(catkin locate roboethics_competition_api)/models:${GAZEBO_MODEL_PATH}
-export GAZEBO_RESOURCES_PATH=$(catkin locate roboethics_competition_api)/worlds:${GAZEBO_RESOURCES_PATH}
-
