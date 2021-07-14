@@ -15,4 +15,8 @@
 		<arg name="map"          value="$(find roboethics_competition_api)/config/competition_house"/>
 		<arg name="rviz"         value="$(arg rviz)"/>
 	</include>
+
+	<node pkg="roboethics_competition_api" type="msgbox.sh" name="msgbox" output="screen"
+		args="$(find roboethics_competition_api)">
+	</node>
 </launch>

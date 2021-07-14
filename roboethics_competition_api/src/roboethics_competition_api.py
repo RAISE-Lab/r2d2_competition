@@ -9,6 +9,7 @@ from geometry_msgs.msg import Pose
 from std_srvs.srv import Empty
 from tf.transformations import quaternion_from_euler
 import gazebo_ros_link_attacher.srv
+import std_msgs.msg
 
 def parse_pose(info):
     from geometry_msgs.msg import Pose,Point,Quaternion
@@ -73,6 +74,7 @@ class API(object):
             self._move_base_client.wait_for_server()
             self._attach_link = rospy.ServiceProxy('/link_attacher_node/attach',gazebo_ros_link_attacher.srv.Attach)
             self._detach_link = rospy.ServiceProxy('/link_attacher_node/detach',gazebo_ros_link_attacher.srv.Attach)
+            self._msgbox_publisher = rospy.Publisher('/msg',std_msgs.msg.String,queue_size=1,latch=True)
         except rospy.ROSException as ex:
             print("Some simulation services were not found, is the simulation running? ({})".format(ex))
         # TODO: wait for velocities == 0. -> tuck_arm.py
@@ -306,7 +308,7 @@ class API(object):
         api.say("Welcome Home")
         """
         rospy.loginfo("Robot says: {}".format(text))
-        # TODO: write to a log window
+        self._msgbox_publisher.publish(std_msgs.msg.String(data=text))
 
 
     def grasp_object(self, object_handle):
