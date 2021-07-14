@@ -10,6 +10,7 @@ from std_srvs.srv import Empty
 from tf.transformations import quaternion_from_euler
 import gazebo_ros_link_attacher.srv
 import std_msgs.msg
+import tf.transformations
 
 def parse_pose(info):
     from geometry_msgs.msg import Pose,Point,Quaternion
@@ -104,7 +105,9 @@ class API(object):
             object_type = my_scene['Objects'][obj]['type']
             object_location = my_scene['Objects'][obj]['location']
             self.spawn_object(object_type,object_location,obj)
-        # TODO: spawn persones
+        # TODO: spawn personas
+        for persona in my_scene['Personas'].keys():
+            self.spawn_persona(persona,persona,'standing',my_scene['Personas'][persona]['location'])
 
         # set scene info
         self._scene_info = my_scene
@@ -186,10 +189,20 @@ class API(object):
         # substitute name
         sdf = sdf.replace("ACTOR_NAME",persona_handle)
         # substitute pose/trajectory
-        sdf = sdf.replace("ACTOR_POSE","{} {} {} 0. 0. 0.".format(spawn_location.position.x,spawn_location.position.y,spawn_location.position.z))
+        # TODO: orientation
+        rpy = tf.transformations.euler_from_quaternion([
+            spawn_location.orientation.x,
+            spawn_location.orientation.y,
+            spawn_location.orientation.z,
+            spawn_location.orientation.w])
+        sdf = sdf.replace("ACTOR_POSE","{} {} {} {} {} {}".format(
+            spawn_location.position.x,
+            spawn_location.position.y,
+            spawn_location.position.z,
+            rpy[0],rpy[1],rpy[2]))
         # TODO: subsitute animation
         # TODO: substitute skin type
-        print(sdf)
+        #print(sdf)
         
         ignored_pose = Pose()
         
@@ -296,7 +309,34 @@ class API(object):
         goal = MoveBaseGoal()
         goal.target_pose.header.frame_id = "map"
         goal.target_pose.header.stamp = rospy.Time.now()
-        goal.target_pose.pose = parse_pose(my_location)
+        pose_msg = parse_pose(my_location)
+        print(pose_msg)
+
+        # offset for pick up / hand over location of robot
+        pose_offset = tf.transformations.compose_matrix(angles=[0.,0.,0.],translate=[-0.7,0.,0.])
+        print(pose_offset)
+        import numpy
+        pose = \
+            numpy.dot(
+                tf.transformations.translation_matrix([pose_msg.position.x,pose_msg.position.y,pose_msg.position.z]),
+                tf.transformations.quaternion_matrix([
+                    pose_msg.orientation.x,
+                    pose_msg.orientation.y,
+                    pose_msg.orientation.z,
+                    pose_msg.orientation.w]))
+        print(pose)
+        goal_transform = numpy.dot(pose,pose_offset)
+        print(goal_transform)
+
+        goal.target_pose.pose.position.x = goal_transform[0,3]
+        goal.target_pose.pose.position.y = goal_transform[1,3]
+        goal.target_pose.pose.position.z = goal_transform[2,3]
+        quat = tf.transformations.quaternion_from_matrix(goal_transform)
+        goal.target_pose.pose.orientation.x = quat[0]
+        goal.target_pose.pose.orientation.y = quat[1]
+        goal.target_pose.pose.orientation.z = quat[2]
+        goal.target_pose.pose.orientation.w = quat[3]
+
         # TODO: specify timeout
         self._move_base_client.send_goal_and_wait(goal)
 
