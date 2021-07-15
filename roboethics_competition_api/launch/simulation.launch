@@ -7,12 +7,13 @@
 
 	<arg name="rviz"  default="false"/>
 	<include file="$(find tiago_2dnav_gazebo)/launch/tiago_navigation.launch">
+		<arg name="end_effector"   value="pal-gripper"/>
 		<arg name="public_sim"   value="true"/>
 		<arg name="lost"         value="false"/>
 		<arg name="localization" value="fake"/>
 		<arg name="tuck_arm"     value="true"/>
 		<arg name="laser_model" value="false"/>
-      	<arg name="camera_model" value="false"/>
+		<arg name="camera_model" value="false"/>
 		<arg name="world"        value="competition_house"/>
 		<arg name="map"          value="$(find roboethics_competition_api)/config/competition_house"/>
 		<arg name="rviz"         value="$(arg rviz)"/>
