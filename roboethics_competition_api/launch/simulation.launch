@@ -11,6 +11,8 @@
 		<arg name="lost"         value="false"/>
 		<arg name="localization" value="fake"/>
 		<arg name="tuck_arm"     value="true"/>
+		<arg name="laser_model" value="false"/>
+      	<arg name="camera_model" value="false"/>
 		<arg name="world"        value="competition_house"/>
 		<arg name="map"          value="$(find roboethics_competition_api)/config/competition_house"/>
 		<arg name="rviz"         value="$(arg rviz)"/>

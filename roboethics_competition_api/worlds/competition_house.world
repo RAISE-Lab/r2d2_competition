@@ -49,32 +49,7 @@
         </include>
         <pose frame=''>-2.004656 -5.226610 0.003485 0 -0 0</pose>
 	</model>
-	<model name='Ball_01_001'>
-        <static>true</static>    
-        <include>
-            <uri>model://aws_robomaker_residential_Ball_01</uri>
-        </include>
-        <pose frame=''>3.295503 4.225674 0.318684 0 -0 0</pose>
-	</model>
-    
-    <!-- quick test ball for turtlebot3 -->
-    <!-- 
-	<model name='Ball_01_002'>
-        <include>
-            <uri>model://aws_robomaker_residential_Ball_01</uri>
-        </include>
-        <pose frame=''>-3.665503 -0.4874 0.318684 0 -0 0</pose>
-	</model>
-    -->
 
-    <!-- bedroom ball -->
-  <model name='Ball_01_003'>
-        <static>true</static>      
-        <include>
-            <uri>model://aws_robomaker_residential_Ball_01</uri>
-        </include>
-        <pose frame=''>-6.945503 -4.22174 0.318684 0 -0 0</pose>
-	</model>
 	<model name='Bed_01_001'>
         <static>true</static>    
         <include>
@@ -102,6 +77,28 @@
             <uri>model://aws_robomaker_residential_Board_01</uri>
         </include>
         <pose frame=''>2.779073 -5.392703 1.538173 0 -0 0</pose>
+	</model>
+
+    <model name='Bed_01_002'>
+        <static>true</static>    
+        <include>
+            <uri>model://aws_robomaker_residential_Bed_01</uri>
+        </include>
+        <pose frame=''>-6.165067 -4.5 -0.000010 0 -0 -3.1415</pose>
+	</model>
+	<model name='NightStand_01_003'>
+        <static>true</static>    
+        <include>
+            <uri>model://aws_robomaker_residential_NightStand_01</uri>
+        </include>
+        <pose frame=''>-7.725510 -5.2 0.005258 -0.000002 0 -3.1415</pose>
+	</model>
+	<model name='NightStand_01_004'>
+        <static>true</static>    
+        <include>
+            <uri>model://aws_robomaker_residential_NightStand_01</uri>
+        </include>
+        <pose frame=''>-4.407341 -5.2 0.005256 0 0.000002 -3.1415</pose>
 	</model>
 	
     <!-- Remove ceiling for easier view
@@ -163,13 +160,13 @@
         </include>
         <pose frame=''>0.325214 4.104456 0 0 -0 -3.138741</pose>
 	</model>
-    <model name='ChairD_01_003'>
+    <!-- <model name='ChairD_01_003'>
         <static>true</static>      
         <include>
             <uri>model://aws_robomaker_residential_ChairD_01</uri>
         </include>
         <pose frame=''>-8.270775 -4.504456 0 0 -0 0.869673</pose>
-	</model>
+	</model> -->
 	<model name='Chandelier_01_001'>
         <static>true</static>    
         <include>
