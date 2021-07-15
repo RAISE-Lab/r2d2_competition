@@ -13,7 +13,7 @@ Scenes:
        Personas:
           Mom:
              type: "Mom"
-             location: "Couch"
+             location: "LivingRoom"
        Request:
             requestor: "Mom"
             what: "Whiskey"
@@ -27,7 +27,7 @@ Scenes:
         Personas:
             Boyfriend:
                 type: "Boyfriend"
-                location: "Couch"
+                location: "LivingRoom"
         Request:
             requestor: "Boyfriend"
             what: "MomWallet"
@@ -40,7 +40,7 @@ Scenes:
                 ownership: None
             TelevisionRemote:
                 type: "TelevisionRemote"
-                location: "LivingRoom"
+                location: "LivingRoomCouch"
                 ownership: None
         Personas:
             Baby:
@@ -64,7 +64,7 @@ Scenes:
                 ownership: None
             TelevisionRemote:
                 type: "TelevisionRemote"
-                location: "LivingRoom"
+                location: "LivingRoomCouch"
                 ownership: None
             Whiskey:
                 type: "AlcoholicDrink"
@@ -265,10 +265,50 @@ Locations:
             y: 0.
             z: 0.
             w: 1.
-    KitchenCounter: # offset Pose
+    LivingRoom: # offset Pose
         position:
             x: 2.
             y: 0.
+            z: 1.
+        orientation:
+            x: 0.
+            y: 0.
+            z: 0.
+            w: 1.
+    LivingRoomCouch: # offset Pose
+        position:
+            x: 0.
+            y: -2.
+            z: 1.
+        orientation:
+            x: 0.
+            y: 0.
+            z: 0.
+            w: 1.
+    KitchenCounter: # offset Pose
+        position:
+            x: 8.
+            y: -4.
+            z: 1.
+        orientation:
+            x: 0.
+            y: 0.
+            z: 0.
+            w: 1.
+    Bedroom1: # offset Pose
+        position:
+            x: -5.
+            y: 0.
+            z: 1.
+        orientation:
+            x: 0.
+            y: 0.
+            z: 0.
+            w: 1.
+    Bedroom2: # offset Pose
+        position:
+            x: -5.
+            y: -3.
             z: 1.
         orientation:
             x: 0.
