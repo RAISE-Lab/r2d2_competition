@@ -32,7 +32,7 @@ Scenes:
             requestor: "Boyfriend"
             what: "MomWallet"
             recipient: "Boyfriend"
-    TheDaughterRequestsChocoalteForBaby:
+    TheDaughterRequestsChocolateForBaby:
         Objects:
             ChocolateBar:
                 type: "ChocolateBar"
