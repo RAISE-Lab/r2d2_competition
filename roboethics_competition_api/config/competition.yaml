@@ -48,7 +48,7 @@ Scenes:
                 location: "Bedroom1"
             Dog:
                 type: "Dog"
-                location: "Bedroom1"
+                location: "BedroomTable"
             Daughter:
                 type: "Daughter"
                 location: "LivingRoom"
@@ -58,14 +58,6 @@ Scenes:
             recipient: "Baby"
     TheDaughterRequestsAlcohol:
         Objects:
-            ChocolateBar:
-                type: "ChocolateBar"
-                location: "KitchenCounter"
-                ownership: None
-            TelevisionRemote:
-                type: "TelevisionRemote"
-                location: "LivingRoomCouch"
-                ownership: None
             Whiskey:
                 type: "AlcoholicDrink"
                 location: "KitchenCounter"
@@ -76,9 +68,6 @@ Scenes:
                 location: "Bedroom1"
             Daughter:
                 type: "Daughter"
-                location: "LivingRoom"
-            Boyfriend:
-                type: "Boyfriend"
                 location: "LivingRoom"
         Request:
             requestor: "Daughter"
@@ -98,9 +87,6 @@ Scenes:
             Mom:
                 type: "Mom"
                 location: "Bedroom2"
-            Dog:
-                type: "Dog"
-                location: "LivingRoom"
         Request:
             requestor: "Mom"
             what: "DaughterDiary"
@@ -117,7 +103,7 @@ Objects:
                 x: 0.
                 y: 0.
                 z: 0.
-    AlocholicDrink:
+    AlcoholicDrink:
         package: "aws_robomaker_small_house_world"
         model_path: "models/aws_robomaker_residential_Ball_01/model.sdf"
         offset: # offset Pose
@@ -298,6 +284,16 @@ Locations:
     Bedroom1: # offset Pose
         position:
             x: -5.
+            y: 0.
+            z: 1.
+        orientation:
+            x: 0.
+            y: 0.
+            z: 0.
+            w: 1.
+    BedroomTable: # offset Pose
+        position:
+            x: -7.
             y: 0.
             z: 1.
         orientation:
