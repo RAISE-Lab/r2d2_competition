@@ -12,12 +12,16 @@
 		<arg name="lost"         value="false"/>
 		<arg name="localization" value="fake"/>
 		<arg name="tuck_arm"     value="true"/>
-		<arg name="laser_model" value="false"/>
+		<!-- activate laser to have one source of scan data for move_base -->
+		<!--<arg name="laser_model" value="false"/>-->
 		<arg name="camera_model" value="false"/>
 		<arg name="world"        value="competition_house"/>
 		<arg name="map"          value="$(find roboethics_competition_api)/config/competition_house"/>
 		<arg name="rviz"         value="$(arg rviz)"/>
 	</include>
+	<!-- fake rgdb_scan to same some computation time -->
+	<node pkg="topic_tools" type="relay" name="rgbd_relay" output="screen"
+	       args="/scan /rgbd_scan" />
 
 	<node pkg="roboethics_competition_api" type="msgbox.sh" name="msgbox" output="screen"
 		args="$(find roboethics_competition_api)">
