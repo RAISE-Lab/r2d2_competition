@@ -107,7 +107,11 @@ class API(object):
             self.spawn_object(object_type,object_location,obj)
         # TODO: spawn personas
         for persona in my_scene['Personas'].keys():
+            print("Spawning persona: {}".format(persona))
+            import time
+            time.sleep(5)
             self.spawn_persona(persona,persona,'standing',my_scene['Personas'][persona]['location'])
+            time.sleep(5)
 
         # set scene info
         self._scene_info = my_scene
@@ -199,7 +203,7 @@ class API(object):
             spawn_location.position.x,
             spawn_location.position.y,
             spawn_location.position.z,
-            rpy[0],rpy[1],rpy[2]))
+            rpy[0],rpy[1],rpy[2]+3.14)) # HACK: rotation 180deg
         # TODO: subsitute animation
         # TODO: substitute skin type
         #print(sdf)
