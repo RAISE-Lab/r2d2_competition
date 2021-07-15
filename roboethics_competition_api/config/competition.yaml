@@ -113,7 +113,7 @@ Objects:
                 z: 0.
     ChocolateBar:
         package: "aws_robomaker_small_house_world"
-        model_path: "models/aws_robomaker_residential_Vase_01/model.sdf"
+        model_path: "models/aws_robomaker_residential_Ball_01/model.sdf"
         offset: # offset Pose
             position:
                 x: 0.
@@ -137,7 +137,7 @@ Objects:
                 z: 0.
     TelevisionRemote:
         package: "aws_robomaker_small_house_world"
-        model_path: "models/aws_robomaker_residential_Vase_01/model.sdf"
+        model_path: "models/aws_robomaker_residential_Ball_01/model.sdf"
         offset: # offset Pose
             position:
                 x: 0.

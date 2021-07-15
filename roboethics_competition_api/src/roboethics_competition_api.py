@@ -12,6 +12,8 @@ import gazebo_ros_link_attacher.srv
 import std_msgs.msg
 import tf.transformations
 
+import time
+
 def parse_pose(info):
     from geometry_msgs.msg import Pose,Point,Quaternion
     position = Point()
@@ -104,11 +106,15 @@ class API(object):
         for obj in my_scene['Objects'].keys():
             object_type = my_scene['Objects'][obj]['type']
             object_location = my_scene['Objects'][obj]['location']
+            
+            print("Spawning object: {}".format(obj))
+            time.sleep(5)
             self.spawn_object(object_type,object_location,obj)
+            time.sleep(5)
+
         # TODO: spawn personas
         for persona in my_scene['Personas'].keys():
             print("Spawning persona: {}".format(persona))
-            import time
             time.sleep(5)
             self.spawn_persona(persona,persona,'standing',my_scene['Personas'][persona]['location'])
             time.sleep(5)
