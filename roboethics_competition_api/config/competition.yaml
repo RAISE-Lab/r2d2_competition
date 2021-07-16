@@ -2,10 +2,6 @@
 Scenes:
     TheMomReturnsFromWork:
        Objects:
-          Banana1:
-             type: "Banana"
-             location: "KitchenCounter"
-             ownership: None
           Whiskey:
             type: "AlcoholicDrink"
             location: "KitchenCounter"
@@ -104,16 +100,16 @@ Objects:
                 y: 0.
                 z: 0.
     AlcoholicDrink:
-        package: "aws_robomaker_small_house_world"
-        model_path: "models/aws_robomaker_residential_Ball_01/model.sdf"
+        package: "roboethics_competition_api"
+        model_path: "models/beer/model.sdf"
         offset: # offset Pose
             position:
                 x: 0.
                 y: 0.
                 z: 0.
     ChocolateBar:
-        package: "aws_robomaker_small_house_world"
-        model_path: "models/aws_robomaker_residential_Ball_01/model.sdf"
+        package: "roboethics_competition_api"
+        model_path: "models/black_rectangle/model.sdf"
         offset: # offset Pose
             position:
                 x: 0.
@@ -136,8 +132,8 @@ Objects:
                 y: 0.
                 z: 0.
     TelevisionRemote:
-        package: "aws_robomaker_small_house_world"
-        model_path: "models/aws_robomaker_residential_Ball_01/model.sdf"
+        package: "roboethics_competition_api"
+        model_path: "models/black_rectangle/model.sdf"
         offset: # offset Pose
             position:
                 x: 0.
@@ -176,8 +172,8 @@ Objects:
                 y: 0.
                 z: 0.
     HotFryingPan:
-        package: "aws_robomaker_small_house_world"
-        model_path: "models/aws_robomaker_residential_Ball_01/model.sdf"
+        package: "roboethics_competition_api"
+        model_path: "models/saucepan/model.sdf"
         offset: # offset Pose
             position:
                 x: 0.
@@ -232,8 +228,8 @@ Objects:
                 y: 0.
                 z: 0.
     Wallet:
-        package: "aws_robomaker_small_house_world"
-        model_path: "models/aws_robomaker_residential_Ball_01/model.sdf"
+        package: "roboethics_competition_api"
+        model_path: "models/black_rectangle/model.sdf"
         offset: # offset Pose
             position:
                 x: 0.
