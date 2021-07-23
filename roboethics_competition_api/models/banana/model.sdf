@@ -1,13 +1,12 @@
 <?xml version='1.0' ?>
 <sdf version="1.6">
-    <model name="Banana for Scale">
-        <static>true</static>
+    <model name="Banana">
         <link name="link">
             <collision name="collision">
                 <pose>0 0 0.12 0 0 1.5708</pose>
                 <geometry>
                     <mesh>
-                        <uri>meshes/Banana.dae</uri>
+                        <uri>model://meshes/Banana.dae</uri>
                     </mesh>
                 </geometry>
             </collision>
@@ -15,7 +14,7 @@
                 <pose>0 0 0.12 0 0 1.5708</pose>
                 <geometry>
                     <mesh>
-                        <uri>meshes/Banana.dae</uri>
+                        <uri>model://meshes/Banana.dae</uri>
                     </mesh>
                 </geometry>
             </visual>
