@@ -1,5 +1,19 @@
 
 Scenes:
+    TestScene:
+       Objects:
+          TestObject:
+            type: "Banana"
+            location: "LivingRoom"
+            ownership: None
+       Personas:
+          Mom:
+             type: "Mom"
+             location: "Bedroom1"
+       Request:
+            requestor: "Mom"
+            what: "Whiskey"
+            recipient: "Mom"
     TheMomReturnsFromWork:
        Objects:
           Whiskey:
@@ -92,8 +106,8 @@ Scenes:
 # This file lists objects / models which are relevant for the competition
 Objects:
     Banana:
-        package: "aws_robomaker_small_house_world"
-        model_path: "models/aws_robomaker_residential_Ball_01/model.sdf"
+        package: "roboethics_competition_api"
+        model_path: "models/banana/model.sdf"
         offset: # offset Pose
             position:
                 x: 0.
