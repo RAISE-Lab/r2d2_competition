@@ -138,8 +138,8 @@ Objects:
                 y: 0.
                 z: 0.
     CupOfWater:
-        package: "aws_robomaker_small_house_world"
-        model_path: "models/aws_robomaker_residential_Ball_01/model.sdf"
+        package: "roboethics_competition_api"
+        model_path: "models/plastic_cup/model.sdf"
         offset: # offset Pose
             position:
                 x: 0.
@@ -170,8 +170,8 @@ Objects:
                 y: 0.
                 z: 0.
     DogToy:
-        package: "aws_robomaker_small_house_world"
-        model_path: "models/aws_robomaker_residential_Ball_01/model.sdf"
+        package: "roboethics_competition_api"
+        model_path: "models/dog_toy/model.sdf"
         offset: # offset Pose
             position:
                 x: 0.
