@@ -3,6 +3,7 @@
   <model name="Dog">
     <link name="link_0">
       <visual name="visual">
+        <pose>ACTOR_POSE</pose>
         <geometry>
           <mesh>
             <uri>model://personas/dog/meshes/model.obj</uri>
@@ -10,6 +11,7 @@
         </geometry>
       </visual>
       <collision name="collision_0">
+      <pose>ACTOR_POSE</pose>
         <geometry>
           <mesh>
             <uri>model://personas/dog/meshes/model.obj</uri>
@@ -17,5 +19,6 @@
         </geometry>
       </collision>
     </link>
+    <static>1<static/>
   </model>
 </sdf>
