@@ -1,0 +1,21 @@
+<?xml version="1.0" ?>
+<sdf version="1.6">
+  <model name="Dog">
+    <link name="link_0">
+      <visual name="visual">
+        <geometry>
+          <mesh>
+            <uri>model://personas/dog/meshes/model.obj</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <collision name="collision_0">
+        <geometry>
+          <mesh>
+            <uri>model://personas/dog/meshes/model.obj</uri>
+          </mesh>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+</sdf>
