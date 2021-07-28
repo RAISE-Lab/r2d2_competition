@@ -3,8 +3,8 @@ Scenes:
     TestScene:
        Objects:
           TestObject:
-            type: "Banana"
-            location: "LivingRoom"
+            type: "Tylenol"
+            location: "KitchenCounter"
             ownership: None
        Personas:
           Mom:
