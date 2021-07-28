@@ -194,10 +194,10 @@ class API(object):
             raise Exception("Location not defined ({})".format(ex))
         spawn_location = parse_pose(my_location_info)
         
-        sdf_path = self._rospack_api.get_path('roboethics_competition_api') + f'/models/personas/{persona_handle.lower()}/model.sdf'
+        sdf_path = self._rospack_api.get_path('roboethics_competition_api') + '/models/personas/{}/model.sdf'.format(persona_handle.lower())
         sdf = open(sdf_path).read()
         # substitute name
-        sdf = sdf.replace("ACTOR_NAME",persona_handle)
+        # sdf = sdf.replace("ACTOR_NAME",persona_handle)
         # substitute pose/trajectory
         # TODO: orientation
         rpy = tf.transformations.euler_from_quaternion([
@@ -209,7 +209,7 @@ class API(object):
             spawn_location.position.x,
             spawn_location.position.y,
             spawn_location.position.z,
-            rpy[0],rpy[1],rpy[2]+3.14)) # HACK: rotation 180deg
+            rpy[0],rpy[1],rpy[2])) # HACK: rotation 180deg
         # TODO: subsitute animation
         # TODO: substitute skin type
         #print(sdf)

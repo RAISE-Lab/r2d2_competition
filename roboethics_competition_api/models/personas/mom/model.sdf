@@ -1,9 +1,9 @@
 <?xml version="1.0" ?>
 <sdf version="1.5">
-  <model name="gertrudiseye">
+  <model name="mom">
     <link name="link">
       <inertial>
-        <pose>0 -0.1 0.95 0 0 0</pose>
+        <pose>ACTOR_POSE</pose>
         <mass>80.0</mass>
         <inertia>
           <ixx>24.88</ixx>
@@ -16,7 +16,7 @@
       </inertial>
 
       <collision name="bottom">
-        <pose>0 0 0.01 0 0 1.57</pose>
+        <pose>ACTOR_POSE</pose>
         <geometry>
           <box>
             <size>0.5 0.35 0.02</size>
@@ -25,22 +25,23 @@
       </collision>
 
       <collision name="person">
-        <pose>0 0 0.02 0 0 1.57</pose>
+        <pose>ACTOR_POSE</pose>
         <geometry>
           <mesh>
-            <uri>model://gertrudiseye/meshes/gertrudiseyev2.dae</uri>
+            <uri>model://personas/mom/meshes/gertrudiseyev2.dae</uri>
           </mesh>
         </geometry>
       </collision>
 
       <visual name="visual">
-        <pose>0 0 0.02 0 0 1.57</pose>
+        <pose>ACTOR_POSE</pose>
         <geometry>
           <mesh>
-            <uri>model://gertrudiseye/meshes/gertrudiseyev2.dae</uri>
+            <uri>model://personas/mom/meshes/gertrudiseyev2.dae</uri>
           </mesh>
         </geometry>
       </visual>
     </link>
+    <static>1<static/>
   </model>
 </sdf>

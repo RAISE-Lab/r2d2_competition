@@ -3,15 +3,18 @@ Scenes:
     TestScene:
        Objects:
           TestObject:
-            type: "Tylenol"
+            type: "DogToy"
             location: "KitchenCounter"
             ownership: None
        Personas:
-          Mom:
-             type: "Mom"
+          Boyfriend:
+             type: "Boyfriend"
              location: "Bedroom1"
+          Dog:
+              type: "Dog"
+              location: "LivingRoom"
        Request:
-            requestor: "Mom"
+            requestor: "Daughter"
             what: "Whiskey"
             recipient: "Mom"
     TheMomReturnsFromWork:
