@@ -1,0 +1,14 @@
+material DiaryMaterial
+{
+   technique
+   {
+      pass
+      {
+         texture_unit
+         {
+          texture ../textures/diary.png
+          scale 1 1
+         }
+      }   
+   }
+}

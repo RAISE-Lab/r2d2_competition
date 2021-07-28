@@ -194,7 +194,7 @@ class API(object):
             raise Exception("Location not defined ({})".format(ex))
         spawn_location = parse_pose(my_location_info)
         
-        sdf_path = self._rospack_api.get_path('roboethics_competition_api') + '/models/actor/persona_template.sdf'
+        sdf_path = self._rospack_api.get_path('roboethics_competition_api') + f'/models/personas/{persona_handle.lower()}/model.sdf'
         sdf = open(sdf_path).read()
         # substitute name
         sdf = sdf.replace("ACTOR_NAME",persona_handle)

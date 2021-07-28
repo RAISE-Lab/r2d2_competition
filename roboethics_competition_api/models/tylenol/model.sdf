@@ -1,6 +1,6 @@
 <?xml version='1.0'?>
 <sdf version='1.7'>
-  <model name='tylenol'>
+  <model name='Tylenol'>
     <link name='link'>
       <inertial>
         <mass>1</mass>
@@ -28,7 +28,7 @@
         <material>
           <script>
             <name>TylenolMaterial</name>
-            <uri>file://tylenol/materials/scripts/repeated.material</uri>
+            <uri>file://tylenol/materials/scripts/tylenol.material</uri>
           </script>
           <ambient>0.3 0.3 0.3 1</ambient>
           <diffuse>0.7 0.7 0.7 1</diffuse>

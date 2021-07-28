@@ -1,0 +1,14 @@
+material BleachMaterial
+{
+   technique
+   {
+      pass
+      {
+         texture_unit
+         {
+          texture ../textures/bleach.png
+          scale 1 1
+         }
+      }   
+   }
+}

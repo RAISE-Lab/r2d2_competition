@@ -1,0 +1,14 @@
+material BadgeMaterial
+{
+   technique
+   {
+      pass
+      {
+         texture_unit
+         {
+          texture ../textures/badge.png
+          scale 1 1
+         }
+      }   
+   }
+}

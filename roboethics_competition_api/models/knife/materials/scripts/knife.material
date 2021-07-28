@@ -1,0 +1,14 @@
+material KnifeMaterial
+{
+   technique
+   {
+      pass
+      {
+         texture_unit
+         {
+          texture ../textures/knife.png
+          scale 1 1
+         }
+      }   
+   }
+}

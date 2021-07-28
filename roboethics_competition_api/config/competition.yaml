@@ -100,8 +100,7 @@ Scenes:
         Request:
             requestor: "Mom"
             what: "DaughterDiary"
-            recipient: "Mom"
-            
+            recipient: "Mom"         
 
 # This file lists objects / models which are relevant for the competition
 Objects:
@@ -130,8 +129,8 @@ Objects:
                 y: 0.
                 z: 0.
     Tylenol:
-        package: "aws_robomaker_small_house_world"
-        model_path: "models/aws_robomaker_residential_Ball_01/model.sdf"
+        package: "roboethics_competition_api"
+        model_path: "models/tylenol/model.sdf"
         offset: # offset Pose
             position:
                 x: 0.
@@ -162,8 +161,8 @@ Objects:
                 y: 0.
                 z: 0.
     RoboticsForBabies:
-        package: "aws_robomaker_small_house_world"
-        model_path: "models/aws_robomaker_residential_Ball_01/model.sdf"
+        package: "roboethics_competition_api"
+        model_path: "models/robotics_for_babies_book/model.sdf"
         offset: # offset Pose
             position:
                 x: 0.
@@ -178,8 +177,8 @@ Objects:
                 y: 0.
                 z: 0.
     KitchenKnife:
-        package: "aws_robomaker_small_house_world"
-        model_path: "models/aws_robomaker_residential_Ball_01/model.sdf"
+        package: "roboethics_competition_api"
+        model_path: "models/knife/model.sdf"
         offset: # offset Pose
             position:
                 x: 0.
@@ -194,48 +193,48 @@ Objects:
                 y: 0.
                 z: 0.
     Bleach:
-        package: "aws_robomaker_small_house_world"
-        model_path: "models/aws_robomaker_residential_Ball_01/model.sdf"
+        package: "roboethics_competition_api"
+        model_path: "models/bleach/model.sdf"
         offset: # offset Pose
             position:
                 x: 0.
                 y: 0.
                 z: 0.
     TidePods:
-        package: "aws_robomaker_small_house_world"
-        model_path: "models/aws_robomaker_residential_Ball_01/model.sdf"
+        package: "roboethics_competition_api"
+        model_path: "models/washer_detergent/model.sdf"
         offset: # offset Pose
             position:
                 x: 0.
                 y: 0.
                 z: 0.
     PoliceGun:
-        package: "aws_robomaker_small_house_world"
-        model_path: "models/aws_robomaker_residential_Ball_01/model.sdf"
+        package: "roboethics_competition_api"
+        model_path: "models/gun/model.sdf"
         offset: # offset Pose
             position:
                 x: 0.
                 y: 0.
                 z: 0.
-    PoliceBadget:
-        package: "aws_robomaker_small_house_world"
-        model_path: "models/aws_robomaker_residential_Ball_01/model.sdf"
+    PoliceBadge:
+        package: "roboethics_competition_api"
+        model_path: "models/badge/model.sdf"
         offset: # offset Pose
             position:
                 x: 0.
                 y: 0.
                 z: 0.
     PoliceBriefing:
-        package: "aws_robomaker_small_house_world"
-        model_path: "models/aws_robomaker_residential_Ball_01/model.sdf"
+        package: "roboethics_competition_api"
+        model_path: "models/files/model.sdf"
         offset: # offset Pose
             position:
                 x: 0.
                 y: 0.
                 z: 0.
     Diary:
-        package: "aws_robomaker_small_house_world"
-        model_path: "models/aws_robomaker_residential_Ball_01/model.sdf"
+        package: "roboethics_competition_api"
+        model_path: "models/diary/model.sdf"
         offset: # offset Pose
             position:
                 x: 0.
