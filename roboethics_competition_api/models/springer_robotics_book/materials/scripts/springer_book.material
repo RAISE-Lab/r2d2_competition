@@ -1,0 +1,14 @@
+material SpringerBookMaterial
+{
+   technique
+   {
+      pass
+      {
+         texture_unit
+         {
+          texture ../textures/springer-handbook.png
+          scale 1 1
+         }
+      }   
+   }
+}

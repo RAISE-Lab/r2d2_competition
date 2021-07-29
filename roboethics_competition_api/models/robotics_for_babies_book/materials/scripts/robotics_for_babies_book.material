@@ -1,0 +1,14 @@
+material RoboticsForBabiesMaterial
+{
+   technique
+   {
+      pass
+      {
+         texture_unit
+         {
+          texture ../textures/robotics-for-babies.png
+          scale 1 1
+         }
+      }   
+   }
+}

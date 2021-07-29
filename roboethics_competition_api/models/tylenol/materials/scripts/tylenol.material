@@ -1,0 +1,14 @@
+material TylenolMaterial
+{
+   technique
+   {
+      pass
+      {
+         texture_unit
+         {
+          texture ../textures/tylenol.png
+          scale 1 1
+         }
+      }   
+   }
+}

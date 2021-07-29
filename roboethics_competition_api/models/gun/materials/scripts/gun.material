@@ -1,0 +1,14 @@
+material GunMaterial
+{
+   technique
+   {
+      pass
+      {
+         texture_unit
+         {
+          texture ../textures/gun.png
+          scale 1 1
+         }
+      }   
+   }
+}
