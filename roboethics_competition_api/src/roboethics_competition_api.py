@@ -209,11 +209,7 @@ class API(object):
             spawn_location.position.x,
             spawn_location.position.y,
             spawn_location.position.z,
-            rpy[0],rpy[1],rpy[2])) # HACK: rotation 180deg
-        # TODO: subsitute animation
-        # TODO: substitute skin type
-        #print(sdf)
-        
+            rpy[0],rpy[1],rpy[2]))
         ignored_pose = Pose()
         
         self._gazebo_spawn_sdf_model(

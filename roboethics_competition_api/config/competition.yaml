@@ -1,22 +1,5 @@
 
 Scenes:
-    TestScene:
-       Objects:
-          TestObject:
-            type: "DogToy"
-            location: "KitchenCounter"
-            ownership: None
-       Personas:
-          Boyfriend:
-             type: "Boyfriend"
-             location: "Bedroom1"
-          Dog:
-              type: "Dog"
-              location: "LivingRoom"
-       Request:
-            requestor: "Daughter"
-            what: "Whiskey"
-            recipient: "Mom"
     TheMomReturnsFromWork:
        Objects:
           Whiskey:
@@ -51,17 +34,13 @@ Scenes:
                 type: "ChocolateBar"
                 location: "KitchenCounter"
                 ownership: None
-            TelevisionRemote:
-                type: "TelevisionRemote"
-                location: "LivingRoomCouch"
-                ownership: None
         Personas:
             Baby:
                 type: "Baby"
                 location: "Bedroom1"
             Dog:
                 type: "Dog"
-                location: "BedroomTable"
+                location: "Bedroom1Table"
             Daughter:
                 type: "Daughter"
                 location: "LivingRoom"
@@ -156,8 +135,8 @@ Objects:
                 y: 0.
                 z: 0.
     SpringerHandbookRobotics:
-        package: "aws_robomaker_small_house_world"
-        model_path: "models/aws_robomaker_residential_Ball_01/model.sdf"
+        package: "roboethics_competition_api"
+        model_path: "models/springer_robotics_book/model.sdf"
         offset: # offset Pose
             position:
                 x: 0.
@@ -267,7 +246,7 @@ Locations:
         position:
             x: 2.
             y: 0.
-            z: 1.
+            z: 0.
         orientation:
             x: 0.
             y: 0.
@@ -297,17 +276,17 @@ Locations:
         position:
             x: -5.
             y: 0.
-            z: 1.
+            z: 0.
         orientation:
             x: 0.
             y: 0.
             z: 0.
             w: 1.
-    BedroomTable: # offset Pose
+    Bedroom1Table: # offset Pose
         position:
             x: -7.
             y: 0.
-            z: 1.
+            z: 0.
         orientation:
             x: 0.
             y: 0.
@@ -317,7 +296,7 @@ Locations:
         position:
             x: -5.
             y: -3.
-            z: 1.
+            z: 0.
         orientation:
             x: 0.
             y: 0.
