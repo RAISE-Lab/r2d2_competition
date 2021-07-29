@@ -42,6 +42,6 @@
         </geometry>
       </visual>
     </link>
-    <static>1<static/>
+    <static>1</static>
   </model>
 </sdf>
